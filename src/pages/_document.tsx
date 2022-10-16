@@ -7,6 +7,7 @@ export default function Document() {
     <Html>
       <Head>
         <meta name="robots" content="noindex" />
+        <link rel="icon" type="image/ico" href="/favicon/favicon.svg"/>
       </Head>
       <body>
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
