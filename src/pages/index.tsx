@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import Head from 'next/head'
 import { EmailIcon } from '@chakra-ui/icons'
 import Layout from './layouts'
 import Top from './panels/top'
@@ -25,6 +26,9 @@ const Home: NextPage = () => {
 
   return (
     <>
+      <Head>
+        <title>osakana</title>
+      </Head>
       <Layout panels={panels} />
     </>
   )
