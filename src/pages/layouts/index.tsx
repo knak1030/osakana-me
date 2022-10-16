@@ -33,10 +33,10 @@ const Layout = ({ panels } : Props) => {
         onClick={setTabIndexAndClose}
       >
         <Box position={'relative'} maxW={'1200px'} h={'100vh'} overflow={'hidden'} m={'auto'}>
-          <Box position={'absolute'} w={'100%'} top={'50%'} left={'0'} transform={'translateY(-50%)'}>
+          <Box position={'absolute'} w={'100%'} top={{md: '50%', base: '0'}} left={'0'} transform={{md: 'translateY(-50%)', base: 'unset'}}>
             <Image src={icon} alt="logo of the author" />
           </Box>
-          <Box w={'70vw'} maxW={'100%'} m={'auto'} position={'absolute'} top={'50%'} left={'50%'} transform={'translate(-50%, -50%)'}>
+          <Box w={{base: '90vw', md: '70vw'}} maxW={'100%'} m={'auto'} position={'absolute'} top={'50%'} left={'50%'} transform={'translate(-50%, -50%)'}>
             <Tabs
               variant={'line'}
               colorScheme='accent'
@@ -45,8 +45,8 @@ const Layout = ({ panels } : Props) => {
               onChange={(index) => setTabIndex(index)}
               position={'relative'} m={'9vh auto'} h={'80vh'} minH={'400px'} maxH={'744px'}
             >
-              <Stack direction={'row'} align={'flex-end'} justify={'space-between'} h={'100%'}>
-                <Box w={'85%'} h={'100%'} position={'relative'}>
+              <Stack direction={{base: 'column', md: 'row'}} rowGap={'1rem'} align={'flex-end'} justify={'space-between'} h={'100%'}>
+                <Box w={{base: '100%', md: '85%'}} h={'100%'} position={'relative'}>
                   <Fade in={isOpen}>
                     <TabPanels
                       onClick={(e) => {e.stopPropagation()}}
@@ -62,7 +62,7 @@ const Layout = ({ panels } : Props) => {
                     </TabPanels>
                   </Fade>
                 </Box>
-                <TabList w={'15%'} flexDirection={'column'} border={'none'} justifyContent={'flex-end'}>
+                <TabList w={{base: '100%', md: '15%'}} flexDirection={'column'} border={'none'} justifyContent={'flex-end'} alignItems={'flex-end'}>
                   {
                     panels?.map((item, index) => (
                       <Tab
