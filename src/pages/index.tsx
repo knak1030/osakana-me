@@ -6,7 +6,7 @@ import Top from './panels/top'
 import CommingSoon from './panels/commingSoon'
 import Contact from './panels/contact'
 
-import { Panel } from './interfaces/index'
+import { Panel } from '../interfaces/index'
 
 const Home: NextPage = () => {
   const panels: Panel[] = [

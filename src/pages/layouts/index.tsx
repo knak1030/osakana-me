@@ -4,7 +4,7 @@ import { Box, Fade, Tabs, TabList, TabPanels, Tab, TabPanel, Stack, useDisclosur
 import DashIcon from '../components/DashIcon'
 import ModeToggleButton from '../components/ModeToggleButton'
 import icon from '../../public/bg.svg'
-import { Panel } from '../interfaces/index'
+import { Panel } from '../../interfaces/index'
 
 type Props = {
   panels: Panel[],
