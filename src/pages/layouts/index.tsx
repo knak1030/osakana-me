@@ -33,7 +33,7 @@ const Layout = ({ panels } : Props) => {
         onClick={setTabIndexAndClose}
       >
         <Box position={'relative'} maxW={'1200px'} h={'100vh'} overflow={'hidden'} m={'auto'}>
-          <Box position={'absolute'} w={'100%'} top={{md: '50%', base: '0'}} left={'0'} transform={{md: 'translateY(-50%)', base: 'unset'}}>
+          <Box position={'absolute'} w={'100%'} top={{md: '50%', base: '0'}} left={'0'} transform={{md: 'translateY(-50%)', base: 'unset'}} p={{base: '3rem 0 0 0', md: '0'}}>
             <Image src={icon} alt="logo of the author" />
           </Box>
           <Box w={{base: '90vw', md: '70vw'}} maxW={'100%'} m={'auto'} position={'absolute'} top={'50%'} left={'50%'} transform={'translate(-50%, -50%)'}>
@@ -43,7 +43,7 @@ const Layout = ({ panels } : Props) => {
               defaultIndex={-1}
               index={tabIndex}
               onChange={(index) => setTabIndex(index)}
-              position={'relative'} m={'9vh auto'} h={'80vh'} minH={'400px'} maxH={'744px'}
+              position={'relative'} m={'9vh auto'} marginTop={{base: '3rem', md: '9vh'}} h={'80vh'} minH={'400px'} maxH={'744px'}
             >
               <Stack direction={{base: 'column', md: 'row'}} rowGap={'1rem'} align={'flex-end'} justify={'space-between'} h={'100%'}>
                 <Box w={{base: '100%', md: '85%'}} h={'100%'} position={'relative'}>

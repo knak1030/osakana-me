@@ -6,7 +6,7 @@ const Top = () => {
     <>
       <Box h={'100%'}>
         <Text fontSize="md">Kanako Osa<br /><br /></Text>
-        <Stack spacing={'0'} direction={['column', 'row']} flexWrap={'wrap'} wordBreak={'break-word'} alignItems={'flex-end'} gap={'1rem'} rowGap={'3rem'}>
+        <Stack spacing={'0'} direction={['column', 'row']} flexWrap={'wrap'} wordBreak={'break-word'} alignItems={'flex-end'} gap={'1rem'} rowGap={'3rem'} pb={'3rem'}>
           <Box minW={'300px'} m={'0'} flex={'1 1 0'}>
             <Text fontSize="sm">
               ---<br />
