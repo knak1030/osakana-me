@@ -1,0 +1,17 @@
+version: '3'
+services:
+  app:
+    container_name: next-app
+    build:
+      context: .
+    tty: true
+    volumes:
+      - ./src:/app
+      - node_modules_volume:/app/node_modules
+    environment:
+      - WATCHPACK_POLLING=true
+    command: sh -c "npm install && npm run dev"
+    ports:
+      - '3000:3000'
+volumes:
+  node_modules_volume:
