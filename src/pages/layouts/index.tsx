@@ -53,7 +53,7 @@ const Layout = ({ panels } : Props) => {
                       w={'100%'} h={'100%'} position={'absolute'}
                     >
                       {
-                        panels.map((item, index) => 
+                        panels?.map((item, index) =>
                           <TabPanel key={index} bgColor={tabPanelBg} boxShadow={'0px 4px 10px rgba(0, 0, 0, 0.25)'} backdropFilter={'blur(11.5px)'} h={'100%'} rounded='lg' overflowY={'scroll'}>
                             {item.element}
                           </TabPanel>
@@ -64,7 +64,7 @@ const Layout = ({ panels } : Props) => {
                 </Box>
                 <TabList w={'15%'} flexDirection={'column'} border={'none'} justifyContent={'flex-end'}>
                   {
-                    panels.map((item, index) => (
+                    panels?.map((item, index) => (
                       <Tab
                         key={index}
                         onClick={onOpenButStopPropagation}

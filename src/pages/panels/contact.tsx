@@ -5,8 +5,7 @@ import { EmailIcon, CheckIcon } from '@chakra-ui/icons'
 import { useFormik } from 'formik'
 
 import logo from '../../public/l-black.svg'
-import { contactSchema, contactInitialValue } from '../lib/ValidationSchema/index'
-
+import { contactSchema, contactInitialValue } from '../../lib/ValidationSchema/index'
 
 const Contact = () => {
   const [onSubmit, setOnSubmit] = useState(false)
