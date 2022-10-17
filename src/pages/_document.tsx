@@ -4,7 +4,7 @@ import theme from '../theme/theme'
 
 export default function Document() {
   return (
-    <Html>
+    <Html lang='ja'>
       <Head>
         <meta name="robots" content="noindex" />
         <link rel="icon" type="image/ico" href="/favicon/favicon.svg"/>
