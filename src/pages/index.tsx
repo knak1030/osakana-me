@@ -20,7 +20,7 @@ const Home: NextPage = () => {
     },
     {
       name: <EmailIcon aria-label='contact' />,
-      element: <CommingSoon />
+      element: <Contact />
     }
   ]
 
