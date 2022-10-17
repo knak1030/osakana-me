@@ -11,7 +11,8 @@ const Top = () => {
             <Text fontSize="sm">
               ---<br />
               私はソフトウェアエンジニアです。<br />
-              目に見える誰かのために働くことをしたいです。<br />
+              偉大な提案を実現することを専門にしていますが、<br />
+              小さな祈りのために仕事をしたいと思っています。<br />
               <br />
               EXPERIENCE<br />
               ---<br />
@@ -27,8 +28,8 @@ const Top = () => {
           <Box minW={'300px'} m={'0'} flex={'1 1 0'}>
             <Text fontSize="sm">
               ---<br />
-              I am a software engineer.<br />
-              I work for someone tangible.<br />
+              I specialize in the realization of proposals<br />
+              but, I&apos;m willing to work for a small prayer.<br />
               <br />
               EXPERIENCE<br />
               ---<br />
