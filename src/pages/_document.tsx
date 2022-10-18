@@ -6,7 +6,9 @@ export default function Document() {
   return (
     <Html lang='ja'>
       <Head>
+        <meta charSet="utf-8" />
         <meta name="robots" content="noindex" />
+        <meta name="description" content="Here is osakana-me personal page." />
         <link rel="icon" type="image/ico" href="/favicon/favicon.svg"/>
       </Head>
       <body>
