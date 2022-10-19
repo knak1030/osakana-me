@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { Box, Fade, Tabs, TabList, TabPanels, Tab, TabPanel, Stack, useDisclosure, useColorModeValue } from '@chakra-ui/react'
-import DashIcon from '../components/DashIcon'
-import ModeToggleButton from '../components/ModeToggleButton'
+import DashIcon from '../atoms/DashIcon'
+import ModeToggleButton from '../atoms/ModeToggleButton'
 import icon from '../../public/bg.svg'
 import { Panel } from '../../interfaces/index'
 
