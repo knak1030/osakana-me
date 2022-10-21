@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "analyze": "ANALYZE=true next build",
-    "find:unused": "next-unused"
+    "find:unused": "next-unused",
+    "setup": "node ./contentful/setup.js",
+    "contentful-typescript-codegen": "contentful-typescript-codegen --output @types/generated/contentful.d.ts"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.11",
@@ -17,16 +19,21 @@
     "@emotion/styled": "^11.10.4",
     "@next/bundle-analyzer": "^12.3.1",
     "@sendgrid/mail": "^7.7.0",
+    "chakra-ui-markdown-renderer": "^4.1.0",
+    "contentful": "^9.2.5",
     "formik": "^2.2.9",
     "next": "12.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-markdown": "^8.0.3",
     "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/node": "18.8.0",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
+    "contentful-import": "^8.5.0",
+    "contentful-typescript-codegen": "^3.2.3",
     "eslint": "8.24.0",
     "eslint-config-next": "12.3.1",
     "next-unused": "^0.0.6",

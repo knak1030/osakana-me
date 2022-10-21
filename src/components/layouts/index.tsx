@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/router';
 import { Box, Fade, Tabs, TabList, TabPanels, Tab, TabPanel, Stack, useDisclosure, useColorModeValue } from '@chakra-ui/react'
 import DashIcon from '../atoms/DashIcon'
 import ModeToggleButton from '../atoms/ModeToggleButton'
@@ -8,11 +9,13 @@ import { Panel } from '../../interfaces/index'
 
 type Props = {
   panels: Panel[],
+  defaultIndex?: number
 }
 
-const Layout = ({ panels } : Props) => {
+const Layout = ({ panels, defaultIndex = -1 } : Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const [tabIndex, setTabIndex] = useState(-1)
+  const [tabIndex, setTabIndex] = useState(defaultIndex)
+  const router = useRouter()
 
   const onOpenButStopPropagation = (e: React.SyntheticEvent) => {
     onOpen()
@@ -25,6 +28,13 @@ const Layout = ({ panels } : Props) => {
   }
 
   const tabPanelBg = useColorModeValue('rgba(217, 217, 217, 0.1)', 'rgba(46, 52, 64, 0.5)')
+
+  useEffect(() => {
+    if (defaultIndex) {
+      onOpen()
+      setTabIndex(defaultIndex)
+    }
+  }, [onOpen, defaultIndex, router.asPath])
 
   return (
     <>
