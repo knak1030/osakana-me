@@ -104,6 +104,7 @@ export async function getAllBlogPosts(preview: boolean) {
     }`,
     preview
   )
+  console.log(entries)
   return entries?.data?.blogPostCollection?.items
 }
 
@@ -118,5 +119,6 @@ export async function getBlogPostBySlug(slug: string) {
     }`,
     true
   )
+  console.log(entry)
   return entry?.data?.blogPostCollection?.items?.[0]
 }
