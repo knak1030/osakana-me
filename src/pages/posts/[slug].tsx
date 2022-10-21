@@ -21,12 +21,17 @@ interface Params extends ParsedUrlQuery {
 }
 
 export async function getStaticPaths() {
-  const posts = await getAllBlogPosts(false)
-  const paths = posts?.map((post: IBlogPostFields) => ({
-    params: { slug: post.slug },
-  }))
+  try {
+    const posts = await getAllBlogPosts(false)
+    const paths = posts?.map((post: IBlogPostFields) => ({
+      params: { slug: post.slug },
+    }))
 
-  return { paths, fallback: false }
+    return { paths, fallback: false }
+  } catch (e) {
+    console.log(e)
+    return { paths: [], fallback: false }
+  }
 }
 
 export const getStaticProps: GetStaticProps<Props, Params> = async (context) => {
