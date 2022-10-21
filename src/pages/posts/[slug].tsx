@@ -22,7 +22,7 @@ interface Params extends ParsedUrlQuery {
 
 export async function getStaticPaths() {
   const posts = await getAllBlogPosts(false)
-  const paths = posts.map((post: IBlogPostFields) => ({
+  const paths = posts?.map((post: IBlogPostFields) => ({
     params: { slug: post.slug },
   }))
 
