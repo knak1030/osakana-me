@@ -51,6 +51,22 @@ const BlogPostBody = ({ content = '' }: Props) => {
         </Text>
       );
     },
+    h3: (props: any) => {
+      const { children } = props;
+      return (
+        <Text fontSize={'lg'} mb={2}>
+          {children}
+        </Text>
+      );
+    },
+    h4: (props: any) => {
+      const { children } = props;
+      return (
+        <Text fontSize={'lg'} mb={2}>
+          {children}
+        </Text>
+      );
+    },
     a: (props: any) => {
       const { children, href } = props;
       return (
