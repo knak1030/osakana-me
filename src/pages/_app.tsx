@@ -1,4 +1,7 @@
 import type { AppProps } from 'next/app'
+
+import { useTabIndex, TabIndexContext } from '../hooks/useTabIndex'
+
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools'
 
@@ -20,9 +23,12 @@ const theme = extendTheme({
 })
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const tabCtx = useTabIndex(-1)
   return (
     <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
+      <TabIndexContext.Provider value={tabCtx}>
+        <Component {...pageProps} />
+      </TabIndexContext.Provider>
     </ChakraProvider>
   )
 }

@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/router';
-import { Box, Fade, Tabs, TabList, TabPanels, Tab, TabPanel, Stack, useDisclosure, useColorModeValue } from '@chakra-ui/react'
+import { Box, Fade, Tabs, TabList, TabPanels, Tab, Stack, useDisclosure, useColorModeValue } from '@chakra-ui/react'
 import DashIcon from '../atoms/DashIcon'
 import ModeToggleButton from '../atoms/ModeToggleButton'
 import icon from '../../public/bg.svg'
 import { Panel } from '../../interfaces/index'
+import { TabIndexContext } from '../../hooks/useTabIndex'
+import TabPanel from '../atoms/TabPanel'
 
 type Props = {
   panels: Panel[],
@@ -14,25 +16,24 @@ type Props = {
 
 const Layout = ({ panels, defaultIndex = -1 } : Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const [tabIndex, setTabIndex] = useState(defaultIndex)
+  const tabCtx = useContext(TabIndexContext)
   const router = useRouter()
 
-  const onOpenButStopPropagation = (e: React.SyntheticEvent) => {
+  const onOpenButStopPropagation = (index: number, e: React.SyntheticEvent) => {
+    tabCtx.setTabIndex(index)
     onOpen()
     e.stopPropagation()
   }
 
   const setTabIndexAndClose = () => {
-    setTabIndex(-1)
+    tabCtx.setTabIndex(-1)
     onClose()
   }
-
-  const tabPanelBg = useColorModeValue('rgba(217, 217, 217, 0.1)', 'rgba(46, 52, 64, 0.5)')
 
   useEffect(() => {
     if (defaultIndex) {
       onOpen()
-      setTabIndex(defaultIndex)
+      tabCtx.setTabIndex(defaultIndex)
     }
   }, [onOpen, defaultIndex, router.asPath])
 
@@ -51,8 +52,8 @@ const Layout = ({ panels, defaultIndex = -1 } : Props) => {
               variant={'line'}
               colorScheme='accent'
               defaultIndex={-1}
-              index={tabIndex}
-              onChange={(index) => setTabIndex(index)}
+              index={tabCtx.tabIndex}
+              onChange={(index) => tabCtx.setTabIndex(index)}
               position={'relative'} m={'9vh auto'} marginTop={{base: '3rem', md: '9vh'}} h={'80vh'} minH={'400px'} maxH={'744px'}
             >
               <Stack direction={{base: 'column', md: 'row'}} rowGap={'1rem'} align={'flex-end'} justify={'space-between'} h={'100%'}>
@@ -64,9 +65,7 @@ const Layout = ({ panels, defaultIndex = -1 } : Props) => {
                     >
                       {
                         panels?.map((item, index) =>
-                          <TabPanel key={index} bgColor={tabPanelBg} boxShadow={'0px 4px 10px rgba(0, 0, 0, 0.25)'} backdropFilter={'blur(11.5px)'} h={'100%'} rounded='lg' overflowY={'scroll'}>
-                            {item.element}
-                          </TabPanel>
+                          <TabPanel key={index}>{item.element}</TabPanel>
                         )
                       }
                     </TabPanels>
@@ -77,13 +76,13 @@ const Layout = ({ panels, defaultIndex = -1 } : Props) => {
                     panels?.map((item, index) => (
                       <Tab
                         key={index}
-                        onClick={onOpenButStopPropagation}
+                        onClick={(e) => { onOpenButStopPropagation(index, e) }}
                         m={'0'}
                         border={'none'}
                         justifyContent={'space-between'}
                         maxW={'160px'}
                       >
-                        <DashIcon width={index === tabIndex ? '3rem' : '0' } />
+                        <DashIcon width={index === tabCtx.tabIndex ? '3rem' : '0' } />
                         {item.name}
                       </Tab>
                     ))

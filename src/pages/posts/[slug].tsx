@@ -46,7 +46,7 @@ const Post: NextPage = ({ post, posts }: InferGetStaticPropsType<typeof getStati
   const panels: Panel[] = [
     {
       name: 'list',
-      element: <BlogList posts={posts} />
+      element: <BlogList posts={posts} panelTarget={1} />
     },
     {
       name: 'blog',
