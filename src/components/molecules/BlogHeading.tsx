@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, Stack, Divider, useColorModeValue } from '@chakra-ui/react'
+import { Text, Stack } from '@chakra-ui/react'
 import DisplayDate from '@components/atoms/DisplayDate'
 import { IBlogPostFields } from '../../@types/generated/contentful'
 
@@ -8,7 +8,6 @@ type Props = {
 }
 
 const BlogHeading = ({ post }: Props) => {
-  const borderColor = useColorModeValue('accent.600', 'accent.500')
   return (
     <>
       <Text fontSize={'lg'} mb={2}>{post?.title}</Text>
@@ -18,7 +17,6 @@ const BlogHeading = ({ post }: Props) => {
         </Text>
         <Text fontSize={'xs'}>{post?.tags?.join()}</Text>
       </Stack>
-      <Divider borderColor={borderColor} mb={5} />
     </>
   )
 }

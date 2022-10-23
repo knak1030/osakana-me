@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
-import { Box, Text, ListItem, UnorderedList, Link, useColorModeValue } from '@chakra-ui/react'
+import { Box, Text, ListItem, UnorderedList, Link, useColorModeValue, Code, Divider } from '@chakra-ui/react'
 
 type Props = {
   content?: string
@@ -9,12 +9,13 @@ type Props = {
 
 const BlogPostBody = ({ content = '' }: Props) => {
   const linkColor = useColorModeValue('info.500', 'info.400')
+  const borderColor = useColorModeValue('accent.600', 'accent.500')
 
   const newTheme = {
     p: (props: any) => {
       const { children } = props;
       return (
-        <Text mb={2} fontSize={'sm'}>
+        <Text mb={2} ml={2} fontSize={'sm'}>
           {children}
         </Text>
       );
@@ -30,7 +31,7 @@ const BlogPostBody = ({ content = '' }: Props) => {
     li: (props: any) => {
       const { children } = props;
       return (
-        <ListItem fontSize={'sm'}>
+        <ListItem fontSize={'sm'} ml={2}>
           {children}
         </ListItem>
       );
@@ -38,15 +39,18 @@ const BlogPostBody = ({ content = '' }: Props) => {
     h1: (props: any) => {
       const { children } = props;
       return (
-        <Text fontSize={'2xl'} mb={2}>
-          {children}
-        </Text>
+        <>
+          <Text fontSize={'2xl'} mb={3} pt={3}>
+            {children}
+          </Text>
+          <Divider mb={3} borderColor={borderColor} />
+        </>
       );
     },
     h2: (props: any) => {
       const { children } = props;
       return (
-        <Text fontSize={'xl'} mb={2}>
+        <Text fontSize={'xl'} mb={2} pt={1}>
           {children}
         </Text>
       );
@@ -54,7 +58,7 @@ const BlogPostBody = ({ content = '' }: Props) => {
     h3: (props: any) => {
       const { children } = props;
       return (
-        <Text fontSize={'lg'} mb={2}>
+        <Text fontSize={'lg'} mb={2} pt={1} ml={2}>
           {children}
         </Text>
       );
@@ -62,7 +66,7 @@ const BlogPostBody = ({ content = '' }: Props) => {
     h4: (props: any) => {
       const { children } = props;
       return (
-        <Text fontSize={'lg'} mb={2}>
+        <Text fontSize={'lg'} mb={2} pt={1} ml={2}>
           {children}
         </Text>
       );
@@ -73,6 +77,14 @@ const BlogPostBody = ({ content = '' }: Props) => {
         <Link isExternal href={href} color={linkColor} borderBottom={'dashed 1px'}>
           {children}
         </Link>
+      )
+    },
+    code: (props: any) => {
+      const { children } = props;
+      return (
+        <Code mb={2} ml={2}>
+          {children}
+        </Code>
       )
     }
   }
