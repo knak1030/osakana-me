@@ -4,9 +4,9 @@ import { IBlogPostFields } from '../../@types/generated/contentful'
 import { Panel } from '@interfaces/index'
 
 import Head from 'next/head'
-import Layout from '@components/layouts'
-import BlogList from '@components/panels/blogList'
-import Blog from '@components/panels/blog'
+import Layout from '@components/organisms/layouts'
+import BlogList from '@components/organisms/panels/blogList'
+import Blog from '@components/organisms/panels/blog'
 import ToHomeButton from '@components/atoms/ToHomeButton'
 
 import { getBlogPostBySlug, getAllBlogPosts } from '@libs/contentful/api'

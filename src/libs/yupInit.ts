@@ -6,7 +6,7 @@ setLocale({
     required: 'required.',
   },
   string: {
-    max: '${path} must be at least ${min} characters',
+    max: '${path} must be at least ${max} characters',
     email: '${path} must be a valid email'
   }
 })

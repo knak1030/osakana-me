@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
-import { Text, ListItem, UnorderedList, Link, useColorModeValue } from '@chakra-ui/react'
+import { Box, Text, ListItem, UnorderedList, Link, useColorModeValue } from '@chakra-ui/react'
 
 type Props = {
   content?: string
@@ -62,11 +62,11 @@ const BlogPostBody = ({ content = '' }: Props) => {
   }
 
   return (
-    <>
+    <Box p={2}>
       <ReactMarkdown components={ChakraUIRenderer(newTheme)} skipHtml>
         {content}
       </ReactMarkdown>
-    </>
+    </Box>
   )
 }
 

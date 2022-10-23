@@ -1,12 +1,12 @@
 import type { NextPage, GetStaticProps, InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
 import { EmailIcon } from '@chakra-ui/icons'
-import Layout from '../components/layouts'
-import Top from '../components/panels/top'
-import BlogList from '../components/panels/blogList'
-import Contact from '../components/panels/contact'
-import { getAllBlogPosts } from '../libs/contentful/api'
-import { Panel } from '../interfaces/index'
+import Layout from '@components/organisms/layouts'
+import Top from '@components/organisms/panels/top'
+import BlogList from '@components/organisms/panels/blogList'
+import Contact from '@components/organisms/panels/contact'
+import { getAllBlogPosts } from '@libs/contentful/api'
+import { Panel } from '@interfaces/index'
 import { IBlogPostFields } from '../@types/generated/contentful'
 
 type Props = {
