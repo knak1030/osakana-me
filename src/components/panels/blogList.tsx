@@ -1,14 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import NextLink from 'next/link'
 import { List, ListItem, Text, Link, Stack } from '@chakra-ui/react'
 import { IBlogPostFields } from '../../@types/generated/contentful'
 import DisplayDate from '../atoms/DisplayDate'
+import { TabIndexContext } from '../../hooks/useTabIndex'
 
 type Props = {
   posts?: IBlogPostFields[]
+  panelTarget?: number
 }
 
-const BlogList = ({ posts }: Props) => {
+const BlogList = ({ posts, panelTarget }: Props) => {
+  const tabCtx = useContext(TabIndexContext)
+  const onClick = () => {
+    panelTarget ?
+      tabCtx.setTabIndex(panelTarget)
+      : () => {}
+  }
+
   return (
     <>
       <List styleType={'none'} spacing={3} m={3}>
@@ -18,7 +27,7 @@ const BlogList = ({ posts }: Props) => {
             return (
               <ListItem key={index} mb={2}>
                 <NextLink href={`/posts/${item.slug}`} passHref>
-                  <Link>
+                  <Link onClick={onClick}>
                     <Text fontSize={'sm'} mb={0}>{item.title}</Text>
                     <Stack direction='row' justifyContent={'space-between'} alignItems={'flex-end'}>
                       <Text fontSize={'xs'}>({tag})</Text>
