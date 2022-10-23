@@ -10,7 +10,7 @@ const ToHomeButton = () => {
         <Link>
           <Button
             aria-label='back to home button'
-            position={'fixed'} top={5} left={5} bg={'transparent'}
+            position={'fixed'} top={5} left={5} bg={'transparent'} zIndex={11}
           >
             <ArrowBackIcon />
           </Button>
