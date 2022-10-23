@@ -1,8 +1,8 @@
 import React from 'react'
 import { Text, Box, Divider, Stack } from '@chakra-ui/react'
 import { IBlogPostFields } from '../../@types/generated/contentful'
-import BlogPostBody from '../atoms/BlogPostBody'
-import DisplayDate from '../atoms/DisplayDate'
+import BlogPostBody from '@components/atoms/BlogPostBody'
+import DisplayDate from '@components/atoms/DisplayDate'
 
 type Props = {
   post?: IBlogPostFields

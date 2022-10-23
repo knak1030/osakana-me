@@ -1,13 +1,13 @@
 import React, { useEffect, useContext } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/router';
-import { Box, Fade, Tabs, TabList, TabPanels, Tab, Stack, useDisclosure, useColorModeValue } from '@chakra-ui/react'
-import DashIcon from '../atoms/DashIcon'
-import ModeToggleButton from '../atoms/ModeToggleButton'
-import icon from '../../public/bg.svg'
-import { Panel } from '../../interfaces/index'
-import { TabIndexContext } from '../../hooks/useTabIndex'
-import TabPanel from '../atoms/TabPanel'
+import { Box, Fade, Tabs, TabList, TabPanels, Tab, Stack, useDisclosure } from '@chakra-ui/react'
+import DashIcon from '@components/atoms/DashIcon'
+import ModeToggleButton from '@components//atoms/ModeToggleButton'
+import TabPanel from '@components/atoms/TabPanel'
+import icon from '@public/bg.svg'
+import { Panel } from '@interfaces/index'
+import { TabIndexContext } from '@hooks/useTabIndex'
 
 type Props = {
   panels: Panel[],

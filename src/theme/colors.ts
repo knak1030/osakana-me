@@ -1,7 +1,6 @@
 const colors = {
   black: "#080D1E",
-  // white: "#D9D9D9",
-  white: "#F5F5F5", // bgColor
+  white: "#F5F5F5",
   accent: {
     100: "#FBF8E6",
     200: "#F8F1CF",
@@ -9,7 +8,6 @@ const colors = {
     400: "#D5C793",
     500: "#B9A86D",
     600: "#9F8B4F",
-    // 600: "#B9A86D",
     700: "#857036",
     800: "#6B5622",
     900: "#584314",

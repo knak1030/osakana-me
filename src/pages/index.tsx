@@ -5,7 +5,7 @@ import Layout from '../components/layouts'
 import Top from '../components/panels/top'
 import BlogList from '../components/panels/blogList'
 import Contact from '../components/panels/contact'
-import { getAllBlogPosts } from '../lib/contentful/api'
+import { getAllBlogPosts } from '../libs/contentful/api'
 import { Panel } from '../interfaces/index'
 import { IBlogPostFields } from '../@types/generated/contentful'
 

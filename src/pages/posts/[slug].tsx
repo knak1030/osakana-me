@@ -1,15 +1,15 @@
 import type { NextPage, GetStaticProps, InferGetStaticPropsType } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import { IBlogPostFields } from '../../@types/generated/contentful'
-import { Panel } from '../../interfaces/index'
+import { Panel } from '@interfaces/index'
 
 import Head from 'next/head'
-import Layout from '../../components/layouts'
-import BlogList from '../../components/panels/blogList'
-import Blog from '../../components/panels/blog'
+import Layout from '@components/layouts'
+import BlogList from '@components/panels/blogList'
+import Blog from '@components/panels/blog'
+import ToHomeButton from '@components/atoms/ToHomeButton'
 
-import ToHomeButton from '../../components/atoms/ToHomeButton'
-import { getBlogPostBySlug, getAllBlogPosts } from '../../lib/contentful/api'
+import { getBlogPostBySlug, getAllBlogPosts } from '@libs/contentful/api'
 
 type Props = {
   post?: IBlogPostFields

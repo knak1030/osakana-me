@@ -2,8 +2,8 @@ import React, { useContext } from 'react'
 import NextLink from 'next/link'
 import { List, ListItem, Text, Link, Stack } from '@chakra-ui/react'
 import { IBlogPostFields } from '../../@types/generated/contentful'
-import DisplayDate from '../atoms/DisplayDate'
-import { TabIndexContext } from '../../hooks/useTabIndex'
+import DisplayDate from '@components/atoms/DisplayDate'
+import { TabIndexContext } from '@hooks/useTabIndex'
 
 type Props = {
   posts?: IBlogPostFields[]

@@ -5,8 +5,8 @@ import { Fade, Text, keyframes, Flex, Box, FormControl, Input, FormHelperText, T
 import { EmailIcon, SpinnerIcon } from '@chakra-ui/icons'
 import { useFormik } from 'formik'
 
-import logo from '../../public/l-black.svg'
-import { contactSchema, contactInitialValue } from '../../lib/ValidationSchema/index'
+import logo from '@public/l-black.svg'
+import { contactSchema, contactInitialValue } from '@libs/ValidationSchema/index'
 
 const animationKeyframes = keyframes`
   100% { transform: rotate(360deg) }
