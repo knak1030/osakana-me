@@ -7,7 +7,7 @@ type Props = {
   children?: ReactNode
 }
 
-const ContractFrame = ({ children }: Props) => {
+const ContactFrame = ({ children }: Props) => {
   return (
     <Flex m={'auto'} pb={'3rem'} maxW={'480px'} justifyContent={'center'} alignItems={'center'} direction={'column'}>
       <Box w={'80px'}>
@@ -20,4 +20,4 @@ const ContractFrame = ({ children }: Props) => {
   )
 }
 
-export default ContractFrame
+export default ContactFrame

@@ -4,6 +4,7 @@ import { SpinnerIcon } from '@chakra-ui/icons'
 
 type Props = {
   onSubmitFlag: boolean
+  hidden: boolean
 }
 
 const animationKeyframes = keyframes`
@@ -11,9 +12,9 @@ const animationKeyframes = keyframes`
 `;
 const animation = `${animationKeyframes} 1.5s linear infinite`
 
-const SubmitBtn = ({ onSubmitFlag }: Props) => {
+const SubmitBtn = ({ onSubmitFlag, hidden }: Props) => {
   return (
-    <Button type='submit' disabled={onSubmitFlag} colorScheme='info' m={'auto'}>
+    <Button type='submit' hidden={hidden} disabled={onSubmitFlag} colorScheme='info' m={'auto'}>
       {!onSubmitFlag ? 'Submit' : <SpinnerIcon animation={animation} />}
     </Button>
   )
