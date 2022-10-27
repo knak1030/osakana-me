@@ -28,6 +28,7 @@ const Top = () => {
           <Box minW={'300px'} m={'0'} flex={'1 1 0'}>
             <Text fontSize="sm">
               ---<br />
+              I am a software engineer.<br />
               I specialize in the realization of proposals<br />
               but, I&apos;m willing to work for a small prayer.<br />
               <br />
