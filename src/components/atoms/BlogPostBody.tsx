@@ -1,7 +1,9 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
-import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
-import { Box, Text, ListItem, UnorderedList, Link, useColorModeValue, Code, Divider } from '@chakra-ui/react'
+import ChakraUIRenderer from 'chakra-ui-markdown-renderer'
+import remarkGfm from 'remark-gfm'
+import styles from '@styles/markdown.module.css'
+import { Box, Text, ListItem, UnorderedList, Link, useColorModeValue, Code, Divider, Table, Td, Th } from '@chakra-ui/react'
 
 type Props = {
   content?: string
@@ -86,12 +88,41 @@ const BlogPostBody = ({ content = '' }: Props) => {
           {children}
         </Code>
       )
+    },
+    table: (props: any) => {
+      const { children } = props;
+      return (
+        <Table size={'sm'} variant='simple'>
+          {children}
+        </Table>
+      )
+    },
+    td: (props: any) => {
+      const { children } = props;
+      return (
+        <Td borderColor={'brand.300'}>
+          {children}
+        </Td>
+      )
+    },
+    th: (props: any) => {
+      const { children } = props;
+      return (
+        <Th borderColor={'brand.300'}>
+          {children}
+        </Th>
+      )
     }
   }
 
   return (
     <Box p={2}>
-      <ReactMarkdown components={ChakraUIRenderer(newTheme)} skipHtml>
+      <ReactMarkdown
+        components={ChakraUIRenderer(newTheme)}
+        className={styles.lineBreak}
+        remarkPlugins={[remarkGfm]}
+        skipHtml
+        >
         {content}
       </ReactMarkdown>
     </Box>
