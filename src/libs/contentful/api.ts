@@ -108,10 +108,11 @@ export async function getAllBlogPosts(preview: boolean) {
   return entries?.data?.blogPostCollection?.items
 }
 
-export async function getBlogPostBySlug(slug: string) {
+export async function getBlogPostBySlug(slug: string, locale: string) {
+  const contentfulLocale = locale === 'en' ? 'en' : 'ja-JP'
   const entry = await fetchGraphQL(
     `query {
-      blogPostCollection(where: { slug: "${slug}" }, preview: true, limit: 1) {
+      blogPostCollection(where: { slug: "${slug}" }, preview: true, limit: 1, locale: "${contentfulLocale}") {
         items {
           ${BLOG_POST_GRAPHQL_FIELDS}
         }
@@ -119,6 +120,7 @@ export async function getBlogPostBySlug(slug: string) {
     }`,
     true
   )
+  console.log('entry')
   console.log(entry)
   return entry?.data?.blogPostCollection?.items?.[0]
 }

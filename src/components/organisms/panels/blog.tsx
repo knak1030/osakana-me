@@ -9,6 +9,7 @@ type Props = {
 }
 
 const Blog = ({ post }: Props) => {
+  console.log(post)
   return (
     <>
       <Box m={2}>

@@ -8,6 +8,9 @@ import Contact from '@components/organisms/panels/contact'
 import { getAllBlogPosts } from '@libs/contentful/api'
 import { Panel } from '@interfaces/index'
 import { IBlogPostFields } from '../@types/generated/contentful'
+import { useLocale } from '@hooks/useLocale'
+import Link from 'next/link'
+
 
 type Props = {
   posts?: IBlogPostFields[]
@@ -37,12 +40,18 @@ const Home: NextPage = ({ posts }: InferGetStaticPropsType<typeof getStaticProps
     }
   ]
 
+  const { t } = useLocale()
+
   return (
     <>
       <Head>
         <title>osakana</title>
       </Head>
       <Layout panels={panels} />
+      <h1>{t.TITLE}</h1>
+      <h1>{t.DESCRIPTION}</h1>
+      <Link href="/" locale="ja" passHref>ja</Link>
+      <Link href="/" locale="en" passHref>en</Link>
     </>
   )
 }

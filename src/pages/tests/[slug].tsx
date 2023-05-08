@@ -23,10 +23,10 @@ interface Params extends ParsedUrlQuery {
 export async function getStaticPaths() {
   try {
     const posts = await getAllBlogPosts(false)
-    const paths = posts?.map((post: IBlogPostFields) => ({
-      params: { slug: post.slug },
-    }))
-    paths.push(...paths.map((p: IBlogPostFields) => ({ ...p, locale: 'en' })))
+    const paths = posts?.map((post: IBlogPostFields) => ([
+      { params: { slug: post.slug }, locale: 'ja' },
+      { params: { slug: post.slug }, locale: 'en' }      
+    ]))
 
     return { paths, fallback: false }
   } catch (e) {
@@ -36,32 +36,17 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps: GetStaticProps<Props, Params> = async (context) => {
-  const locale = context.locale || 'ja'
   const params = context.params!
-  const post = await getBlogPostBySlug(params.slug, locale)
+  const post = await getBlogPostBySlug(params.slug)
   const posts = await getAllBlogPosts(false)
 
   return { props: { post, posts } }
 }
 
 const Post: NextPage = ({ post, posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const panels: Panel[] = [
-    {
-      name: 'list',
-      element: <BlogList posts={posts} panelTarget={1} />
-    },
-    {
-      name: 'blog',
-      element: <Blog post={post} />
-    }
-  ]
   return (
     <>
-      <Head>
-        <title>osakana</title>
-      </Head>
-      <ToHomeButton />
-      <Layout panels={panels} defaultIndex={1} />
+      <Blog post={post} />
     </>
   )
 }
