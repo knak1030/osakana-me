@@ -20,9 +20,12 @@ const Top = () => {
               プログラマおよびSEとしてWEB系システム会社にて勤務<br />
               LPサイトなど静的サイトのコーディングをしたり、社内システムや基幹システムの開発・運用・保守をしていました。ネイティブアプリ向けのAPIの設計も経験があります。<br />
               <br />
+              2023年1月 - 現在<br />
+              フリーランスとして活動中<br />
+              <br />
               TOOLS / LANGUAGE<br />
               ---<br />
-              Next.js(React.js), Vue.js, Typescript, Laravel, CakePHP, CodeIgniter, PHP, AWS, figma, Adobe XD
+              Next.js(React.js), Vue.js, Typescript, Laravel, CakePHP, PHP, AWS, figma, Adobe XD
             </Text>
           </Box>
           <Box minW={'300px'} m={'0'} flex={'1 1 0'}>
@@ -39,6 +42,9 @@ const Top = () => {
               Web Application Development <br />
               As a front-end engineer, I have experience coding static sites such as LP sites and building SPAs. As a full stack engineer, I have experience in development, operation, and maintenance of company&apos;s internal systems and backbone systems. I also have experience designing APIs for mobile applications.
               <br />
+              <br />
+              January 2023 - Present<br />
+              Freelance<br />
               <br />
               TOOLS / LANGUAGE<br />
               ---<br />
