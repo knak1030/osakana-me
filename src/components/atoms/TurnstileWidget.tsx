@@ -15,6 +15,7 @@ const TurnstileWidget = ({ invalid, success }: Prop) => {
         onError={() => invalid}
         onExpire={() => invalid}
         onSuccess={(token) => success(token)}
+        id="turnstile-widget"
       />
     </Flex>
   )
